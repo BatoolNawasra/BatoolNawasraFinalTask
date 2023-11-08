@@ -22,6 +22,8 @@ export class VerifyChangeStatusPageActions {
       .clear()
       .type("Batool Nawasra");
 
+
+
     cy.contains("label", "Interviewer").parent().parent().find("input").clear();
 
     cy.contains("label", "Interviewer").parent().parent().find("input");
@@ -42,6 +44,7 @@ export class VerifyChangeStatusPageActions {
       .find("input")
       .type("{enter}");
 
+      
     cy.contains("label", "Date")
       .parent()
       .parent()

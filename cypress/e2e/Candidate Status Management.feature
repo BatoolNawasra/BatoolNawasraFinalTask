@@ -13,6 +13,7 @@
 # 8. Software Engineer
 # 9. TC-01 Manual QA
 # 10. Python developer
+# to handel this error i add new Vacancy and bulid all test over it
 
 # Second Note: Testing Strategy
 # To maximize the number of test scenarios that pass,
@@ -29,59 +30,65 @@
 Feature: Candidate Status Management
 
   Background:
+    # must login and add Vacancy once but before all hook not work as expected so i repaeat every scenario
+
     Given The Admin logged into OrangeHRM with valid credentials
     And Navigate to Recruitment page
+    And Click Vacancies Button
+    And Add New Vacancy with "Batool Lead" Vacancy
+    
     And Click Candidates Button
-    And Filter Candidates with "Associate IT Manager" Vacancy only
+    And Filter Candidates with "Batool Lead" Vacancy only
   # you can change the Vacancy at filtering and adding cadidates but make sure there are the same Vacancy
+
 
 
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 1)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 2)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 3)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 4)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 5)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 6)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 
   Scenario: Add Candidate to verify Initial Status is "Application Initiated"(Duplicate 7)
     When Admin click the Add button
-    And Fill Add Candidate from with "Associate IT Manager" Vacancy
+    And Fill Add Candidate from with "Batool Lead" Vacancy
     And Admin click the "Save" button
     Then The candidate should be in "Application Initiated" status
 

@@ -1,15 +1,22 @@
-//before all hook to login once  but not work as expected
+// before all hook to login once  but not work as expected
 // the expected is for the secand to last test i want to navigate to candidate page only
-//and then run the Scenarios but 
-//the actual :need to relogin before every test 
+// and then run the Scenarios but
+// the actual :need to relogin before every test
 // before(() => {
 //   loginActions.visitOrangeHERWebsite();
 //   loginActions.setUserName("Admin");
 //   loginActions.setPassword("admin123");
 //   loginActions.clickLoginButton();
 //   dashboardActions.navigateToRecruitmentPage();
-// }); 
-//
+//   recruitmentPageActions.clickVacanciesButton();
+//   addVacancyPageActions.clickAddButton();
+//   addVacancyPageActions.fillNewVacancyName("Batool Lead");
+//   addVacancyPageActions.fillNewVacancyHiringManager();
+//   addVacancyPageActions.fillNewVacancyJobTitle();
+//   addVacancyPageActions.clickSaveButton();
+// });
+
+//and then in background and before every senario only navigate to candidates page 
 
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
@@ -21,6 +28,7 @@ import { VerifyChangeStatusPageAssertions } from "../../integration/Pages/Verify
 import { VerifyChangeStatusPageActions } from "../../integration/Pages/VerifyChangeStatusPage/actions";
 import { RecruitmentPageActions } from "../../integration/Pages/RecruitmentPage/actions";
 import { AddCandidatePageActions } from "../../integration/Pages/AddCandidatePage/actions";
+import { AddVacancyPageActions } from "../../integration/Pages/AddVacancyPage/actions";
 
 const loginActions = new LoginActions();
 const dashboardActions = new DashboardActions();
@@ -30,6 +38,7 @@ const applicaionStagePageAssertions = new ApplicaionStagePageAssertions();
 const verifyChangeStatusPageAssertions = new VerifyChangeStatusPageAssertions();
 const verifyChangeStatusPageActions = new VerifyChangeStatusPageActions();
 const addCandidatePageActions = new AddCandidatePageActions();
+const addVacancyPageActions = new AddVacancyPageActions();
 
 Given("The Admin logged into OrangeHRM with valid credentials", () => {
   loginActions.visitOrangeHERWebsite();
@@ -45,6 +54,21 @@ Given("Navigate to Recruitment page", () => {
 Given("Click Candidates Button", () => {
   recruitmentPageActions.clickCandidatesButton();
 });
+
+Given("Click Vacancies Button", () => {
+  recruitmentPageActions.clickVacanciesButton();
+});
+
+Given(
+  "Add New Vacancy with {string} Vacancy",
+  function (newVacancyName: string) {
+    addVacancyPageActions.clickAddButton();
+    addVacancyPageActions.fillNewVacancyName(newVacancyName);
+    addVacancyPageActions.fillNewVacancyHiringManager();
+    addVacancyPageActions.fillNewVacancyJobTitle();
+    addVacancyPageActions.clickSaveButton();
+  }
+);
 
 Given(
   "Filter Candidates with {string} Vacancy only",

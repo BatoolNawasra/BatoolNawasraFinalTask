@@ -8,6 +8,11 @@ export class RecruitmentPageActions {
     cy.contains("li", "Candidates").click();
   }
 
+
+  clickVacanciesButton() {
+    cy.contains("li", "Vacancies").click();
+  }
+
   clickSearchButton() {
     cy.contains("button", "Search").click();
   }
